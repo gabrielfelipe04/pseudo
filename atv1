@@ -1,18 +1,9 @@
 # Sessão: Declarando variaveis
-nomePaciente: literal, 
-comorbidade: literal,
-tipoLesao: literal,
-estaAcoplado: literal,
-suspenderPaciente: literal,
-descerPaciente: literal,
-pacienteAfivelado: literal,
-ligarZeroG: inteiro,
-distanciaExercicio: inteiro,
-pesoPaciente: real, 
-zeroGLigado: boleano
-modoDinamico: boleano, 
-modoEstatico: boleano
-pacienteAcoplado: boleano,
+
+literal nomePaciente, comorbidade, tipoLesao, estaAcoplado, pacienteAfivelado, suspenderPaciente, descerPaciente 
+inteiro ligarZeroG, distanciaExercicio
+real pesoPaciente
+boleano zeroGLigado, modoDinamico, modoEstatico, pacienteAcoplado
 
 # Inicio do código
 
@@ -64,9 +55,10 @@ se nomePaciente != nulo e peso != nulo e tipoLesao != nulo e comorbidade != nulo
 									escrever('Informe a distancia para o exercicio: ')
 									ler(distanciaExercicio)
 									distanciaAtual = 0
-									enquanto distanciaAtual < distanciaExercicio:
+									faça {
 										escrever(distanciaAtual)
 										distanciaAtual + 1
+									} (distanciaAtual < distanciaExercicio)
 								senao:
 									escrever('Digite 'd' para descer o paciente')
 							senao:
@@ -88,9 +80,10 @@ se nomePaciente != nulo e peso != nulo e tipoLesao != nulo e comorbidade != nulo
 									escrever('Paciente ao solo')
 									escrever('Informe a distancia para o exercicio: ')
 									ler(distanciaExercicio)
-									enquanto distanciaAtual < distanciaExercicio:
+									faça {
 										escrever(distanciaAtual)
 										distanciaAtual + 1
+									} (distanciaAtual < distanciaExercicio)
 								
 								senao:
 									escrever('Digite 'd' para descer o paciente')
