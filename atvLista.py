@@ -112,10 +112,6 @@ listaestados=[
 ['Norte', 'TO', 'Colinas do Tocantins', 17, 170550, 17004, 'CERRADO TOCANTINS ARAGUAIA', '18/07/2021', 29, 35424.0, 7608, 3, 136, 0, ' ', ' ', 0.0],
 ['Norte', 'TO', 'Sandolândia', 17, 171884, 17005, 'ILHA DO BANANAL', '26/09/2021', 39, 3375.0, 414, 0, 9, 0, ' ', ' ', 0.0]]
 
-# Rio de Janeiro:
-print('\nRio de Janeiro: ')
-print(tupla_estados[36][9] + tupla_estados[37][9])
-
 #lista tabulada 
 listamortescumuladas=[
 ['Centro-Oeste  ','DF	',0	,53	,0	,0	,0	,44478	,40,3015268	,505543	,771,10594	,9	   ],
@@ -170,16 +166,45 @@ tupla_mortesacumuladas = (
 ('Norte			','AC'	,0	,12	,0	,0	,0	,44478	,40,881935	,87944	,4	,1840	,1	           ),
 ("Norte			",'RO'	,0	,11	,0	,0	,0	,44478	,40,1777225	,266699	,48	,6543,	-1	           ))
 
-# item c
+
+print('B) Mande printar na tela o número de casos acumulados para o estado do rio de janeiro tanto para a tupla quanto para a lista:')
+print('\nRio de Janeiro: TUPLA ')
+print(f'{tupla_estados[36][9]} + {tupla_estados[37][9]}:')
+print(f'{tupla_estados[36][9] + tupla_estados[37][9]}\n')
+print('Rio de Janeiro: LISTA ')
+print(f'{listaestados[36][9]} + {listaestados[37][9]}:')
+print(f'{listaestados[36][9] + listaestados[37][9]}\n')
+
+print('C) Apresente na tela todos os óbitos acumulados mostrando os casos apenas para o casodos estados (sem mostrar regiões de saúde, etc..).')
 print ("Estados relacionados ao número de mortes acumuladas" )
 for linha in tupla_mortesacumuladas:
-    print(linha [1], linha [10])
+    print(linha [1], linha [12])
 
-'''# Selecionando dois municipios de um estado e adicionando-os na lista de estados
+print('G) Remova da lista os dados das regiões de saúde.')
+# Removendo as regiões de saúde[4] da listaestados:
+removidos = []
+for i in range(len(listaestados)):
+    removidos.append(listaestados[i][4])
+print('\nOs elementos removidos serão:')
+print(removidos)
+
+for i in range(len(listaestados)):
+    listaestados[i].pop(4)
+print('\nA lista sem as regiões de saúde agora é:')
+print(listaestados)
+
+print('Verifique se a soma dos dados dos municípios na data de 18/08/2020 é igual ao dado da lista, mostrando na tela apenas se for verdadeiro.')
+for linha in range(listaData[7]):
+    listaestados[7]
+
+
+# Selecionando dois municipios de um estado e adicionando-os na lista de estados
+print('F) Crie uma nova lista com apenas dados de 1 estado e todos os municípios e adicione essa lista nova a lista já existente (append ou insert).')
 novalista = listaestados[32:34]
 listaestados.insert(34,novalista)
 print('\nA lista com dois novos municipios do PIAUI é:')
-print(listaestados)'''
+print(listaestados)
+
 
 # item d
 for i in listamortescumuladas:
@@ -190,46 +215,35 @@ for i in listamortescumuladas:
 i[12] = i[12] + 0.5 #Adicionando 0,5 ao total de mortes acumuladas no Rondônia
 print (i[12])
 
-print('\nMortes acumuladas PB Nordeste: ')
+print('\nD) Assuma que os dados de óbitos novos para o estado da paraíba estejam errados em 10 unidades para menos.Sobrescreva a informação tanto na lista quanto na tupla, corrigindo os dados.')
+print('Mortes acumuladas PB Nordeste:(LISTA)')
 print(listamortescumuladas[15] [13])
-
 #somar 10 ao valor LISTA
-print('\nSomando 10 ao valor da LISTA de mortes acumuladas PB Nordeste')
+print('Somando 10 ao valor da LISTA de mortes acumuladas PB Nordeste')
 listamortescumuladas[15] [13] = listamortescumuladas[15] [13] + 10
 print(listamortescumuladas[15] [13])
-
-
-'''#somar 10 ao valor TUPLA
+'''
+print('Mortes acumuladas PB Nordeste(TUPLA): ')
 print(tupla_mortesacumuladas[15] [13])
-print('\nSomando 10 ao valor da TUPLA de mortes acumuladas PB Nordeste')
+print('Somando 10 ao valor da TUPLA de mortes acumuladas PB Nordeste')
 tupla_mortesacumuladas[15] [13]= tupla_mortesacumuladas[15] [13] + 10
-print(tupla_mortesacumuladas[15] [13])'''
-
+print(tupla_mortesacumuladas[15] [13])
+print('Não foi possível adicionar 10 ao valor de novos óbitos do estado da Paraíba, pois as tuplas são imutáveis. Logo não podemos alterar os valores dentro dela')
+'''
 
 # Informando quais os valores serão removidos da lista:
-removidos = []
-for i in range(len(listaestados)):
-    removidos.append(listaestados[i][4])
-print('\nOs elementos removidos serão:')
-print(removidos)
-
-# Removendo as regiões de saúde[4] da listaestados:
-for i in range(len(listaestados)):
-    listaestados[i].pop(3)
-print('\nA lista sem as regiões de saúde agora é:')
-print(listaestados)
 
 # Exibindo o tamanho da lista de estados
 print('\nO tamanho total da lista de estados é: ')
-print(len(listaestados))
+print(f'{len(listaestados)}\n')
 
 # Com um comando, apresenta informações do município:
-print("digite o municipio desejado: 'socorro do piaui' ou 'parnagua'")
+print("Digite um comando para aparecer as informações do município:\n1 - 'Socorro do piaui'\n2 - 'Parnagua'")
 municipios = input()
-if municipios == "socorro do piaui":
+if municipios == "1":
     print(listaestados[32])
 
-elif municipios == "parnagua":
+elif municipios == "2":
     print(listaestados[33])
 
 else:
